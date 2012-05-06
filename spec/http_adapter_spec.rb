@@ -1,9 +1,4 @@
-require_relative "../lib/renren-api/http_adapter"
-require_relative "../lib/renren-api/signature_calculator"
-require "json"
-require "net/http"
-require "zlib"
-require "stringio"
+require "spec_helper"
 
 describe RenrenAPI::HTTPAdapter, "#get_friends" do
   subject { described_class.new(api_key, secret_key, session_key).get_friends }

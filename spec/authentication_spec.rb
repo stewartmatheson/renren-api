@@ -1,6 +1,4 @@
-require_relative "../lib/renren-api/authentication"
-require "rack/test"
-require "helpers"
+require "spec_helper"
 
 class Rack::MockResponse
   def unauthorized?

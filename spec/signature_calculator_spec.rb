@@ -1,4 +1,4 @@
-require_relative "../lib/renren-api/signature_calculator"
+require "spec_helper"
 
 describe RenrenAPI::SignatureCalculator do
   let(:calculator) { RenrenAPI::SignatureCalculator.new(secret_key) }

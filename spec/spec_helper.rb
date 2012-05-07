@@ -8,6 +8,7 @@ require "stringio"
 require "uuidtools"
 require "digest/md5"
 require "rack/test"
+require 'ruby-debug'
 
 module Helpers
   def generate_hash(secret_key, api_key, hash = {})

@@ -2,8 +2,8 @@ module RenrenAPI
   module Error
     class APIError < StandardError
       
-      def initialize(code, message)
-        @code, @message = code, messgae
+      def initialize(error_response)
+        @code, @message = error_response["error_code"], error_response["error_msg"]
       end
 
       def to_s

@@ -84,8 +84,14 @@ module RenrenAPI
       conn.params = params
       response = conn.send http_method
       raise RenrenAPI::Error::HTTPError.new(response.status) if (400..599).include?(response.status)
-      raise RenrenAPI::Error::Adapter.new
-      JSON.parse(response.body)
+
+      parsed_response = JSON.parse(response.body)
+      raise RenrenAPI::Error::APIError.new(parsed_response) if renren_api_error?(parsed_response)
+      parsed_response
+    end
+
+    def renren_api_error?(response_body)
+      response_body.has_key?("error_code") && response_body.has_key?("error_msg")
     end
 
   end
